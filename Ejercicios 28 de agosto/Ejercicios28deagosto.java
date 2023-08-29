@@ -1,5 +1,6 @@
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.time.LocalDate;
 
 
 public class Ejercicios28deagosto {
@@ -77,39 +78,73 @@ public class Ejercicios28deagosto {
 
 
 		//2. Estaturas:
-		Double masBajo = 0D;
-		Double masAlto = 0D;
+
 		System.out.println("----Estaturas----");
 		Double[] estaturas = getEstaturas( data );
+		Double masBajo = null;
+		Double masAlto = 0D;
 		for ( Double estatura : estaturas ) {
 			System.out.println(estatura);
-			if (estatura < masBajo  ){
-			  masBajo = estatura;
+      if (masBajo == null){
+        masBajo = estatura;
+      } else {
+        if (estatura <= masBajo  ){
+			    masBajo = estatura;
+		    }
+      }
+			if (estatura > masAlto  ){
+			  masAlto = estatura;
+		  }
 		}
-		}
-
+    System.out.println("La persona más baja es: "+masBajo);
+    System.out.println("La persona más alta es: "+masAlto);
+    
 
 		//3. Generos
 
 		System.out.println("----Generos----");
 		Character[] generos = getGeneros( data );
+	  Integer totalM = 0;
+	  Integer totalF = 0;
 		for ( Character genero : generos ) {
 			System.out.println(genero);
+			if (genero == 'M'){
+			  totalM++;
+			} else if (genero == 'F') {
+			  totalF++;
+			}
 		}
+    System.out.println("El total de hombres es: "+totalM);
+    System.out.println("El total de mujeres es: "+totalF);
+
 
 
 		//4. Nombres Completos
-		//tipo_de_variable_para_nombres_completos nombresCompletos = getNombresCompletos( data );
 		System.out.println("----Nombres Completos----");
+		String cadenaDeNombres = "";
 		String[] nombresCompletos = getNombresCompletos( data );
 		for ( String nombreCompleto : nombresCompletos ) {
 			System.out.println(nombreCompleto);
+			cadenaDeNombres = cadenaDeNombres.concat(nombreCompleto.concat(", "));
 		}
+		System.out.println(cadenaDeNombres);
 
 		//5. Edades:
-		//tipo_de_variable_para_fechas_de_nacimiento fechasDeNacimiento = getFechasDeNacimientos(data);
-
-
+		System.out.println("----Fechas de Nacimiento----");
+		LocalDate[] fechasDeNacimiento = getFechasDeNacimientos(data);
+		Long menosAños = null;
+		for (LocalDate fechaDeNacimiento : fechasDeNacimiento) {
+		  //System.out.println(fechaDeNacimiento);
+      
+      Long anosDiferencia = ChronoUnit.YEARS.between(fechaDeNacimiento,LocalDate.now());
+		  System.out.println(anosDiferencia +" años");
+		  if (menosAños==null){
+		    menosAños = anosDiferencia;
+		  } else if (menosAños>anosDiferencia){
+		    menosAños = anosDiferencia;
+		  }  
+    }
+    System.out.println("La persona que menos años tiene, tiene: "+menosAños);
 
 	}
 
@@ -163,18 +198,17 @@ public class Ejercicios28deagosto {
 	}
 
 
+  public static LocalDate[] getFechasDeNacimientos(String[] data){
 
-	/*public static tipo_de_variable_para_fechas_de_nacimiento[] getFechasDeNacimientos(String[] data){
-
-		tipo_de_variable_para_fechas_de_nacimiento[] fechasDeNacimiento = new tipo_de_variable_para_fechas_de_nacimiento[data.length-1];
+		LocalDate[] fechasDeNacimiento = new LocalDate[data.length-1];
 
 		for ( int i = 1; i < data.length; i++ ) {
 			String[] datum = data[i].split( "," );
 			String fechaDeNacimiento = datum[2];
-			fechasDeNacimiento[i-1] = tipo_de_variable_para_fechas_de_nacimiento.parse( fechaDeNacimiento, DateTimeFormatter.ofPattern("dd/MM/uuuu"));
+			fechasDeNacimiento[i-1] = LocalDate.parse( fechaDeNacimiento, DateTimeFormatter.ofPattern("dd/MM/uuuu"));
 		}
 		return fechasDeNacimiento;
-	}*/
+	}
 
 	public static String[] getDirecciones(String[] data){
 
