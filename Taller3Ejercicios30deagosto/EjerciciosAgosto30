@@ -1,0 +1,255 @@
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.time.LocalDate;
+
+public class Taller3agosto30 {
+
+	/*
+	- 	Realice cada punto en el orden que desee
+	- 	El ejericio debe ser realizado con los conceptos vistos en clase
+	- 	Como parte del ejercicio se proveen 5 metodos utilitarios a los cuales hay que definir los tipos de datos que considere
+		es el mas conveniente para el tipo de dato a manejar. Cada uno de estos metodos devuelve un array con el dato que se quiere analizar.
+		Por ejemplo el metodo pesos devuelve un array con los valores {70,58,3,55,63...}.
+		NOTA: Estos metodos se encuentran comentados, descomente solo el metodo del punto que este trabajando para evitar error de compilacion.
+  - 	No es necesario crear nuevos metodos, todos los puntos pueden ser programados en el metodo main
+  -   Adicionalmente y al final de la clase se ha incluido como ejemplo el metodo  public static String[] getDirecciones(String[] data). Ese metodo se usa para
+    extraer las direcciones de cada persona, las cuales son imprimidas utilizando un for desde el main
+
+	1. Pesos:
+		Imprimir los pesos
+		Calcular la media de los pesos
+
+	2. Estaturas:
+		Imprimir estaturas
+		Encontrar el menos alto
+		Encontrar el mas alto
+
+	3. Generos
+		Contar cuantas personas tienen genero Masculino (M), y cuantas con Femenino (F)
+
+	4. Nombres Completos
+		Generar una cadena que contenga todos los nombres de las personas separados por comas asi:
+		Juan Pérez,María García, Carlos Pérez
+
+	5. Edades:
+		Imprimir las edades de cada persona
+		Encontrar cual es la persona con menos año
+*/
+
+	public static void main(String[] args) {
+	    
+	    record InfoPersonal(String nombres,
+                        String apellidos,
+                        LocalDate fechasNacimiento,
+                        String direcciones, 
+                        String municipios, 
+                        String nivelesAcademicos, 
+                        String ocupaciones,
+                        Character generos,
+                        Integer pesos,
+                        Float estaturas){}
+
+		InfoPersonal[] data = new InfoPersonal[10];
+		
+    data[0] = new InfoPersonal("Juan",
+                              "Perez",
+                              LocalDate.parse("19/03/1985", DateTimeFormatter.ofPattern("dd/MM/uuuu")),
+                              "Calle 45 Sur",
+                              "Medellin",
+                              "Licenciatura en Sistemas",
+                              "Ingeniero de Software",
+                              'M',
+                              70,
+                              1.75F);
+    data[1] = new InfoPersonal("Mateo",
+                              "Vargas",
+                              LocalDate.parse("24/02/2004", DateTimeFormatter.ofPattern("dd/MM/uuuu")),
+                              "Calle 23 Sur",
+                              "Itagüí",
+                              "Ingenieria en sistemas",
+                              "desarrpllador de Software",
+                              'M',
+                              50,
+                              1.73F);
+    data[2] = new InfoPersonal("Mateo",
+                              "Vargas",
+                              LocalDate.parse("24/02/2004", DateTimeFormatter.ofPattern("dd/MM/uuuu")),
+                              "Calle 23 Sur",
+                              "Itagüí",
+                              "Ingenieria en sistemas",
+                              "desarrpllador de Software",
+                              'M',
+                              50,
+                              1.73F);
+    data[3] = new InfoPersonal("Mateo",
+                              "Vargas",
+                              LocalDate.parse("24/02/2004", DateTimeFormatter.ofPattern("dd/MM/uuuu")),
+                              "Calle 23 Sur",
+                              "Itagüí",
+                              "Ingenieria en sistemas",
+                              "desarrpllador de Software",
+                              'M',
+                              50,
+                              1.73F);
+    data[4] = new InfoPersonal("Mateo",
+                              "Vargas",
+                              LocalDate.parse("24/02/2004", DateTimeFormatter.ofPattern("dd/MM/uuuu")),
+                              "Calle 23 Sur",
+                              "Itagüí",
+                              "Ingenieria en sistemas",
+                              "desarrpllador de Software",
+                              'M',
+                              50,
+                              1.73F);
+    data[5] = new InfoPersonal("Mateo",
+                              "Vargas",
+                              LocalDate.parse("24/02/2004", DateTimeFormatter.ofPattern("dd/MM/uuuu")),
+                              "Calle 23 Sur",
+                              "Itagüí",
+                              "Ingenieria en sistemas",
+                              "desarrpllador de Software",
+                              'M',
+                              50,
+                              1.73F);
+    data[6] = new InfoPersonal("Mateo",
+                              "Vargas",
+                              LocalDate.parse("24/02/2004", DateTimeFormatter.ofPattern("dd/MM/uuuu")),
+                              "Calle 23 Sur",
+                              "Itagüí",
+                              "Ingenieria en sistemas",
+                              "desarrpllador de Software",
+                              'M',
+                              50,
+                              1.73F);                              
+    
+    data[7] = new InfoPersonal("Mateo",
+                              "Vargas",
+                              LocalDate.parse("24/02/2004", DateTimeFormatter.ofPattern("dd/MM/uuuu")),
+                              "Calle 23 Sur",
+                              "Itagüí",
+                              "Ingenieria en sistemas",
+                              "desarrpllador de Software",
+                              'M',
+                              50,
+                              1.73F);
+    data[8] = new InfoPersonal("Mateo",
+                              "Vargas",
+                              LocalDate.parse("24/02/2004", DateTimeFormatter.ofPattern("dd/MM/uuuu")),
+                              "Calle 23 Sur",
+                              "Itagüí",
+                              "Ingenieria en sistemas",
+                              "desarrpllador de Software",
+                              'M',
+                              50,
+                              1.73F);
+    data[9] = new InfoPersonal("Mateo",
+                              "Vargas",
+                              LocalDate.parse("24/02/2004", DateTimeFormatter.ofPattern("dd/MM/uuuu")),
+                              "Calle 23 Sur",
+                              "Itagüí",
+                              "Ingenieria en sistemas",
+                              "desarrpllador de Software",
+                              'M',
+                              50,
+                              1.73F);
+    /*data
+		data[1] = "Juan,Pérez,15/03/1985,Calle 123,Medellin,Licenciatura en Ingeniería,Ingeniero de Software,M,70,1.75";
+		data[2] = "María,García,28/07/1992,Calle 123,Medellin,Maestría en Psicología,Psicóloga Clínica,F,58,1.68";
+		data[3] = "Carlos,Pérez Garcia,10/03/2023,Calle 123,Medellin,,,M,3,0.80";
+		data[4] = "Ana,Martínez,05/09/2009,Calle 14,Villa,Bachiller,Estudiante,Femenino,55,1.60";
+		data[5] = "Luisa,Hernández,20/06/1989,Carrera 789,Envigado,Doctorado en Economía,Profesora Universitaria,F,63,1.70";
+		data[6] = "Javier,López,12/04/1975,Calle San Juan,Medellin,Licenciatura en Arquitectura,Arquitecto Independiente,M,75,1.82";
+		data[7] = "Laura,Ramírez,18/04/1998,Avenida 6,Ciudad Metropolitana,Bachiller,Estudiante,F,52,1.65";
+		data[8] = "Martín,Torres,30/02/1998,Avenida 6,Aldea,Bachiller,Estudiante,M,68,1.78";
+		data[9] = "Sofia,Vargas,22/07/1995,Avenida 6,Rionegro,Bachiller,Estudiante,F,60,1.63";
+*/
+
+
+
+		//El metodo getDirecciones y el siguiente for se incluye como ejemplo de impresión de las direcciones
+		
+		System.out.println("----Direcciones----");
+		for ( InfoPersonal infoPersonal: data ) {
+			System.out.println(infoPersonal.direcciones);
+		}
+
+
+		//1. Pesos:
+		double pesosAcumulados = 0;
+		System.out.println("----Pesos en KG----");
+		for ( InfoPersonal infoPersonal : data ) {
+			System.out.println(infoPersonal.pesos);
+			pesosAcumulados += infoPersonal.pesos;
+		}
+		double mediaPesos = (pesosAcumulados/(data.length));
+		System.out.println("La media de todos los pesos es: "+mediaPesos);
+
+
+
+		//2. Estaturas:
+
+		System.out.println("----Estaturas----");
+		Float masBajo = null;
+		Float masAlto = 0F;
+		Float auxEstatura = null;
+		for ( InfoPersonal infoPersonal : data ) {
+			System.out.println(infoPersonal.estaturas);
+			auxEstatura = infoPersonal.estaturas;
+      if (masBajo == null){
+        masBajo = auxEstatura;
+      } else {
+        if (auxEstatura <= masBajo  ){
+			    masBajo = auxEstatura;
+		    }
+      }
+			if (auxEstatura > masAlto  ){
+			  masAlto = auxEstatura;
+		  }
+		}
+    System.out.println("La persona más baja es: "+masBajo);
+    System.out.println("La persona más alta es: "+masAlto);
+   
+		//3. Generos
+
+		System.out.println("----Generos----");
+	  Integer totalM = 0;
+	  Integer totalF = 0;
+		for ( InfoPersonal infoPersonal : data ) {
+			System.out.println(infoPersonal.generos);
+			if (infoPersonal.generos == 'M'){
+			  totalM++;
+			} else if (infoPersonal.generos == 'F') {
+			  totalF++;
+			}
+		}
+    System.out.println("El total de hombres es: "+totalM);
+    System.out.println("El total de mujeres es: "+totalF);
+
+		//4. Nombres Completos
+		System.out.println("----Nombres Completos----");
+		String cadenaDeNombres = "";
+	  String nombreCompleto = null; 
+		for ( InfoPersonal infoPersonal : data ) {
+		  nombreCompleto = (infoPersonal.nombres.concat(" " + infoPersonal.apellidos));
+			System.out.println(nombreCompleto);
+			cadenaDeNombres = cadenaDeNombres.concat(nombreCompleto.concat(", "));
+		}
+		System.out.println(cadenaDeNombres);
+
+ 
+		//5. Edades:
+		System.out.println("----Fechas de Nacimiento----");
+		Long menosAños = null;
+		for (InfoPersonal infoPersonal : data) {
+      Long anosDiferencia = ChronoUnit.YEARS.between(infoPersonal.fechasNacimiento,LocalDate.now());
+		  System.out.println(anosDiferencia +" años");
+		  if (menosAños==null){
+		    menosAños = anosDiferencia;
+		  } else if (menosAños>anosDiferencia){
+		    menosAños = anosDiferencia;
+		  }  
+    }
+    System.out.println("La persona que menos años tiene, tiene: "+menosAños);
+
+	} 
+}
