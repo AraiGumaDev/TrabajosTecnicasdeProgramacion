@@ -17,7 +17,6 @@ public class Ejercicio1 {
         double FahrenheitConvertido = (Fahrenheit[i]-32)/1.8;
         System.out.println(Fahrenheit[i]+"°F son equivalentes a "+FahrenheitConvertido+"°C");
       }
-      
 
   }
 }

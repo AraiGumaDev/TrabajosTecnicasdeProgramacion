@@ -18,7 +18,6 @@ public class Ejercicio2 {
         else {
             System.out.println(listado[j] + " es igual o esta por encima del promedio");
           }
-        
       } 
     }
 }
