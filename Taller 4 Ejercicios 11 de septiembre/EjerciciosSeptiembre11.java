@@ -65,7 +65,6 @@ public class EjerciciosSeptiembre11 {
       listaEspera.add(new cliente(9389384,"Daniel","Sánchez","",""));
       System.out.println("En cola de espera: "+listaEspera.size());
       
-
-
+      print("Este es mi proyecto");
   }
 }
